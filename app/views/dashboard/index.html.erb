@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Google Geocoder</h1>
+  </div>
+  <div ng-controller="LocationsController">
+    <div class="row">
+      <div class="col-md-12">
+        <form class="form-inline" ng-submit="geolocateAddress()">
+          <div class="form-group">
+            <input type="text" class="form-control" name="address" placeholder="Address" size="40" ng-model="location.address" />
+          </div>
+          <button type="submit" class="btn btn-primary">Geolocate</button>
+          <span ng-show="error_message" class="alert alert-warning">
+            {{ error_message }}
+          </span>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="col-md-6">Address</th>
+              <th class="col-md-3">Lat</th>
+              <th class="col-md-3">Lng</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="location in locations">
+              <td>{{location.address}}</td>
+              <td>{{location.lat}}</td>
+              <td>{{location.lng}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
